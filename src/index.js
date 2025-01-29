@@ -41,9 +41,9 @@ database.once("connected", () => {
 });
 
 app.use(cors());
-app.use("/api/auth", authroutes);
-app.use("/api/user", userrouters);
-app.use("/api/message", messagerouters);
+app.use("/auth", authroutes);
+app.use("/user", userrouters);
+app.use("/message", messagerouters);
 
 app.get("/", (req, res) => {
   res.send("Hello World!");
