@@ -12,7 +12,7 @@ const app = express();
 const httpServer = createServer(app); // Create HTTP server for Socket.IO
 const io = new Server(httpServer, {
   cors: {
-    origin: "*", // Adjust this for security in production
+    origin: "https://chat-front-i6td.vercel.app/", // Adjust this for security in production
     methods: ["GET", "POST"]
   }
 });
