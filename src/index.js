@@ -13,7 +13,8 @@ const httpServer = createServer(app); // Create HTTP server for Socket.IO
 const io = new Server(httpServer, {
   cors: {
     origin: ["https://chat-front-i6td.vercel.app", "http://localhost:5173"], // Adjust this for security in production
-    methods: ["GET", "POST"]
+    methods: ["GET", "POST"],
+    credentials: true
   }
 });
 
@@ -41,9 +42,9 @@ database.once("connected", () => {
 });
 
 app.use(cors());
-app.use("/auth", authroutes);
-app.use("/user", userrouters);
-app.use("/message", messagerouters);
+app.use("/api/auth", authroutes);
+app.use("/api/user", userrouters);
+app.use("/api/message", messagerouters);
 
 app.get("/", (req, res) => {
   res.send("Hello World!");
